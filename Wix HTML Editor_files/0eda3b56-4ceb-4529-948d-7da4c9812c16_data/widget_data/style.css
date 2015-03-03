@@ -1,0 +1,514 @@
+body
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif!important;
+  font-size: 12px;
+}
+
+.smallImage .ddTitle .ddTitleText img{height:20px;width:auto;}
+.smallImage .ddChild li img{height:20px;width:auto;}
+.wix_image_gallery_button {
+  margin-left: 5px;
+}
+.save_settings_button {
+  display:inline;
+  width: 59px;
+}
+
+.thrash_bin {
+  position: absolute;
+  left: 40px;
+  display: inline;
+  margin-top:5px;
+}
+
+#ddircontainer {
+  height: 30px;
+}
+
+a#drivingDirectionsLink:link    {color:blue;}
+a#drivingDirectionsLink:visited {color:blue;}
+a#drivingDirectionsLink:hover   {color:blue;}
+a#drivingDirectionsLink:active  {color:blue;}
+
+#myLocationButton {
+  display: none;
+}
+#findButton {
+  width:65px;
+}
+#drivingDirectionsLink {
+  font-size:11px;
+}
+#ddirdiv {
+  display:inline;
+  bottom: 5px;
+  left: 5px;
+  position: relative;
+}
+.searchBarControlDiv {
+  background-color: #4387FD;
+  cursor: pointer;
+  margin: 5px 0px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+.searchBarControlDivWithMarginRight {
+  background-color: #4387FD;
+  cursor: pointer;
+  margin: 5px 7px; 
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+.searchBarControlInner {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  -moz-user-select: none;
+  background-clip: padding-box;
+  border-bottom-right-radius: 2px;
+  border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15);
+  border-image: none;
+  border-style: solid solid solid solid;
+  border-top-right-radius: 2px;
+  border-width: 1px 1px 1px 1px;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  color: #FFFFFF;
+  direction: ltr;
+  font-family: Roboto,Arial,sans-serif;
+  font-size: 11px;
+  min-width: 38px;
+  overflow: hidden;
+  padding: 1px 6px;
+  position: relative;
+  text-align: center;
+}
+#popup {
+  display:none;
+  position:absolute;
+  z-index:3;
+  background-color:white;
+  width:600px;
+  height:695px;
+  /*border-style:solid; 
+  border-color:gray; 
+  border-radius:10px; 
+  border-width:1px; */
+  padding-left: 10px;
+}
+
+#queryAddress {
+  width:380px;
+}
+
+h4
+{
+  font-size: 12.5px;
+  margin-top: 7px;
+  margin-bottom: 20px;
+}
+
+#search_bar {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: 80px;
+}
+
+#insideEditorHint {
+  display: none;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+  font-size: 17px;
+  background-color: #A80000;
+  width:100%;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  top: 0;
+}
+
+#map-canvas-container {
+  position: relative;  
+}
+
+#menu_container {
+  position: absolute;
+  top: 180px;
+  left: 69px;
+  z-index: 1;
+  display: none;
+}
+
+
+.markerIconContentImage {
+  float: left;
+  background-repeat: no-repeat;
+}
+
+.markerIconContentText {
+  display: inline;
+  position: absolute;
+  margin-left: 10px;
+  padding-top: 5px;
+}
+
+.ui-icon-sgm {
+  background-size: contain; 
+  height: 20px;
+  width: 20px;
+  background-position: center;
+}
+
+.ui-icon-combo {
+  background-size: contain; 
+  background-position:center; 
+  height: 22px;
+  width: 22px;
+  padding-top: 2px;
+}
+
+.markerIcon {
+  position: relative;
+  width: 149px;
+  height:26px;
+  background: url('../img/title-bg.gif') repeat-x scroll left top #F9F9F9;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-top: 2px;
+  padding-right:20px;
+  border: 1px solid #C3C3C3;
+  float: left;
+}
+
+.markerIconContent {
+  position: relative;
+}
+
+#menu .menuSecondLevel {
+  width: 160px;
+}
+
+.ui-icon-lock {
+  background-size: contain; 
+  float: right;
+  position: static;
+  background-image: url("../img/icon_lock.png");
+  width: 10px;
+  height: 10px;
+}
+
+.colorPickerDiv 
+{
+  display: inline-block;
+}
+
+.ui-menu {
+    width: 170px;
+}
+
+#managing_remarks_message {
+  padding: 7px;
+  -webkit-box-shadow: inset 2px 2px 2px 0px #dddddd;
+  -moz-box-shadow: inset 2px 2px 2px 0px #dddddd;
+  box-shadow: inset 2px 2px 2px 0px #dddddd;
+  border-radius:4px;
+  border: 1px solid #000;
+}
+.keepLevelSaveButton
+{
+  position: relative;
+  top: -17px;
+}
+.keepLevelRadius 
+{
+  position: relative;
+  top: -13px;
+}
+.keepLevel
+{
+  position: relative;
+  top: -24px;
+}
+h3 
+{
+  font-size: 12.5px;
+}
+a:link
+{ 
+  text-decoration:none;
+  color: #000000;
+}
+#info_strip
+{
+  background-color: gray;
+  font-size: 11px; 
+  text-align: right;
+  padding-right:10px;
+}
+a:visited
+{ 
+  text-decoration:none;
+  color: #000000; 
+}
+
+#map-canvas img {
+  max-width: none;
+}
+a:hover
+{ 
+  text-decoration:none;
+  color: #000000;
+}
+
+.noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.settingsGear {
+  width:32px; 
+  height: 32px;
+  display:inline;
+  cursor: pointer;
+}
+#intro_message {
+  display: inline;
+}
+#map_settings {
+  position: relative;
+  top:-15px;
+}
+.intro .icon {
+    border-radius: 15px 15px 15px 15px;
+    height: 62px;
+    position: relative;
+    width: 62px;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+.intro .title {
+  max-width: 100%;
+}
+.intro .icon .logo {
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  background: url('../img/logo.png') center;
+}
+
+#upgradeButton {
+  margin-left:265px;
+  margin-top:5px;
+}
+
+
+.intro .title .divider {
+    background: none repeat scroll 0 0 #CCCCCC;
+    float: left;
+    height: 86px;
+    margin: 13px 24px 0 0;
+    width: 1px;
+}
+#map_settings_button {
+  opacity: 0.5;
+}
+#currentMarkersSettings {
+  position: relative;
+}
+a:active
+{ 
+  text-decoration:none;
+  color: #000000;
+}
+
+#widget_container {
+  width:100%;
+  height:100%;
+  
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  
+}
+
+.premium_comments {
+  margin-bottom: 10px;
+  margin-left:15px;
+}
+
+.comment_author {
+  color: blue;
+}
+
+.markersSettingsTable
+{
+  position: relative;
+  top: -10px;
+}
+#border_settings_table td {
+  height:28px;
+}
+#loaderImage {
+  position:fixed;
+  top:260px; 
+  left:260px;
+  z-index: 101;
+}
+.ui-dialog {
+  font-size: 100% !important;
+}
+.iconUploadForm {
+  display:inline;
+}
+
+.radiusColorPicker div {
+  position: absolute;
+  bottom: 0px;
+  left: 3px;
+  width: 30px;
+  height: 30px;
+  background: url(../images/colorpicker/select.png) center;
+
+}
+.radiusColorPicker {
+  display: inline;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  background: url(../images/colorpicker/select.png);
+}
+.alertPosition {
+  left: 140px!important;
+  top:200px!important;
+}
+.alertPositionForLocationSharing {
+  left: 15px!important;
+  top:200px!important;
+}
+.radius_input {
+   height: 12px;
+   width:50px;
+   line-height: 12px;
+}
+a img {
+  border:0;
+}
+.upgrade {
+    margin-left: 270px;
+}
+#premium_comments_section {
+  overflow:hidden;
+}
+.btn {
+  // background-color: transparent!important;
+}
+#markerEditHint
+{
+  padding: 5px;
+  position: absolute;
+  z-index: 2;
+  display:none;
+  font-weight:bold;
+  background-color: #A80000;
+  color: white;
+}
+
+#closeButtonDiv.hover
+{
+  opacity:0.6;
+}
+
+.custom-combobox {
+  position: relative;
+  display: inline-block;
+}
+.custom-combobox-toggle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-left: -1px;
+  padding: 0;
+  /* support: IE7 */
+  *height: 1.7em;
+  *top: 0.1em;
+}
+.custom-combobox-input {
+  margin: 0;
+  padding: 0.31em;
+}
+
+.btn {
+  background-color: #E6E6E6;  
+}
+
+.delete_button {
+  display: inline;
+  margin-left: 7px;
+}
+
+.search-bar-combobox {
+  background: inherit;
+  background-color: white;
+}
+
+.box .feature input.search-bar-combobox {
+  margin-right: 0;
+} 
+
+#saveDeleteContainer {
+  width:90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.iwContent {
+  min-width: 130px; 
+  min-height: 30px; 
+  line-height: 1.35; 
+  overflow: visible;
+  margin-right : 18px
+}
+
+.ui-autocomplete {
+  max-height: 170px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index:1000 !important;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+}
+
+.iconDivider {
+  border-left: 1px solid #C3C3C3;
+  border-right: 1px solid #FFFFFF;
+  right: 24px;
+  height: 85%;
+  position: absolute;
+  width: 0;
+}
+
+.iconArrow {
+  background: url("../img/dd_arrow.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  height: 16px;
+  margin-top: -8px;
+  width: 16px;
+  display: inline-block;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+}

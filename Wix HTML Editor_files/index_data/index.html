@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+  <meta charset="utf-8">
+
+  <script type="text/javascript">
+    //if(navigator.userAgent.indexOf('MSIE')==-1 || (document.documentMode && document.documentMode>9) ) {
+    try {
+      // parent have original domain
+      parent.document.domain;
+    }
+    catch(e) {
+      // parent have changed domain, we have to do it too
+      document.domain = document.domain.split('.').slice(-2).join('.');
+    }
+    //}
+  </script>
+
+  <!--[if IE]>
+  <script src="//static.wix.com/services/third-party/xdomain/0.6.11/xdomain.min.js"></script>
+  <script>
+    // CORS Fix throw iframe for IE8-9
+    if ((/MSIE\s*[89]/i).test(window.navigator.userAgent || '') || (document.documentMode &&  document.documentMode <= 9)) {
+      siteUrl = document.location.protocol + '//' + document.location.hostname;
+
+      xdomain.slaves({
+        'http://files.wix.com':                   '/assets/iframe_cors_proxy.html?site_url=' + siteUrl, // private media
+        'http://files-test.wix.com':              '/assets/iframe_cors_proxy.html?site_url=' + siteUrl,
+        'http://publicmedia.wix.com':             '/assets/iframe_cors_proxy.html?site_url=' + siteUrl, // public media
+        'http://wixpublicmedia-test.appspot.com': '/assets/iframe_cors_proxy.html?site_url=' + siteUrl,
+        'http://pix.wix.com':                     '/assets/iframe_cors_proxy.html?site_url=' + siteUrl  // external services
+      });
+    }
+  </script>
+  <![endif]-->
+
+  <script type="text/javascript">
+    if(navigator.userAgent.indexOf('MSIE')==-1 || (document.documentMode && document.documentMode>9) ) {
+      document.write('<scr' + 'ipt src="http://sdk-cooladata-com.global.ssl.fastly.net/js/cooladata-javascript-sdk-2.0.0.min.js"></scr' + 'ipt>');
+      //document.write('<scr' + 'ipt src="//static.wix.com/services/third-party/cooladata/cooladata-2.1.8.min.js"></scr' + 'ipt>');
+    }
+  </script><script src="index_data/cooladata-javascript-sdk-2.js"></script>
+
+
+  <script type="text/javascript">
+    window.NREUMQ = window.NREUMQ || [];
+    NREUMQ.push(["mark","firstbyte", (new Date()).getTime()]);
+
+    (function(){
+
+      var getUrlParameter=function(name)
+      {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
+      };
+
+      var parser = document.createElement('a');
+      var staticBaseUrl = getUrlParameter('mediaGalleryStaticBaseUrl') || '';
+
+      parser.href = staticBaseUrl;
+      if (
+          !!staticBaseUrl
+              && (parser.protocol == 'http:' || parser.protocol == 'https:')
+              && (/^[a-z0-9\.-]+$/).test(parser.hostname)
+              && (/^[a-z0-9\._\/-]+$/).test(parser.pathname)
+          ) {
+        window.STATIC_URL_PREFIX = parser.protocol
+            + '//'
+            + parser.hostname.replace('static.wix.com', 'static.parastorage.com')
+            + parser.pathname.replace(/^\/*/, '/').replace(/\/*$/, '/')
+            + 'assets/media_gallery/';
+      }
+      else {
+        window.STATIC_URL_PREFIX = '';
+      }
+      //console.log(STATIC_URL_PREFIX);
+      //window.STATIC_URL_PREFIX=(getUrlParameter('mediaGalleryStaticBaseUrl') || '')
+      //if(STATIC_URL_PREFIX!='') {
+      //  STATIC_URL_PREFIX=STATIC_URL_PREFIX.replace(/\/?(#.*)?$/, '/assets/media_gallery/').replace('static.wix.com', 'static.parastorage.com');
+      //}
+
+    })();
+  </script>
+
+  <script src="index_data/lodash.js"></script>
+  <!-- expandFiles:notifiers -->
+  <script>
+    document.write('<'+'script src="' + STATIC_URL_PREFIX + 'scripts/base_notifiers_min.js"></'+'script>');
+  </script><script src="index_data/base_notifiers_min.js"></script>
+  <!-- endExpandFiles -->
+
+  <script>
+    MediaGallery.appLoadNotifiers.jsLoadStarted();
+  </script>
+
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MG</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css(.tmp) styles/main.css -->
+  <script>
+    document.write('<link href="' + STATIC_URL_PREFIX + 'styles/build.css" media="all" rel="stylesheet">');
+  </script><link href="index_data/build.css" media="all" rel="stylesheet">
+  <!-- endbuild -->
+
+
+  <script src="index_data/feather.js"></script>
+  <script src="index_data/jquery.js"></script>
+  <script src="index_data/angular.js"></script>
+  <script src="index_data/angular-route.js"></script>
+  <script src="index_data/angular-sanitize.js"></script>
+  <script src="index_data/angular-cookies.js"></script>
+  <link href="index_data/fontFace.css" rel="stylesheet" type="text/css">
+
+  <!-- expandFiles:js -->
+
+  <script>
+    document.write('<'+'script src="' + STATIC_URL_PREFIX + 'scripts/build_min.js"></'+'script>');
+  </script><script src="index_data/build_min.js"></script>
+
+  <!-- endExpandFiles -->
+
+</head>
+<body id="mediaGalleryApp" class="ng-scope" wix-autofocus="" wix-click-outside-ng-view="" wix-broadcast-ctrl-a-pressed="">
+  <div class="error right top" id="tooltip-wrapper" style="position: absolute; top: 583.517px; left: 1240.52px;"></div>
+  <div style="top: 371.817px; left: 801.567px;" id="preview-wrapper"></div>
+
+  <!-- ngView:  --><div class="container ng-scope" ng-view=""><!-- ngInclude: '_header.html' --><header class="ng-scope" ng-include="'_header.html'"><a class="close ng-scope" href="" ng-controller="MediaGallery.ProtocolCtrl.Cancel" ng-click="proceed()" on-keyup="proceed()" keys="[27]"><i></i></a>
+<a class="help ng-scope" ng-controller="MediaGallery.ProtocolCtrl.Help" href="http://www.wix.com/support/html5/editor/images-and-clip-art-7803520/" ng-click="proceed()" target="_blank"><i></i></a>
+<h1 class="ng-binding ng-scope">Add Images</h1>
+<nav class="ng-scope" ng-controller="MediaGallery.SettingsCtrl">
+  <div class="buttons-container">
+
+    <div class="upload-button-wrapper" ng-show="canShowPrivate()">
+      <a class="upload ng-scope ng-binding" ng-controller="MediaGallery.privateMedia.UploadCtrl" wix-upload="" wix-files-choosen="handleFileSelect(files)" accept="image/*" wix-bi-event="{ click: 'uploadButtonClicked' }" wix-flash-fallback-button="upload" wix-flash-accept="*.jpeg;*.jpe;*.jpg;*.gif;*.png" wix-flash-static-code="media" wix-flash-media-type="picture" wix-folder-id="">
+        <i></i>Upload Images
+      </a><input accept="image/*" class="actual-upload ng-scope" multiple="true" file-selection-change="handleFileSelect(files)" type="file">
+    </div>
+    <div class="ng-scope" ng-controller="externalServices.ctrls.Services" ng-show="canShowExternal()">
+      <external-services-list class="ng-isolate-scope" services="services" connect-service="connectTo(service)" disconnect-service="disconnectFrom(service)"><a class="connect-services" ng-click="showList()" wix-bi-event="{ click: 'connectExternalServicesClicked' }">
+  <span class="icon facebook"></span>
+  <span class="icon flickr"></span>
+  <span class="icon instagram"></span>
+  <span class="icon picasa"></span>
+</a>
+
+<div class="services-popup ng-hide" ng-show="isOpened">
+
+  <div class="title ng-binding">Add images from your social networks. Choose one and connect</div>
+
+  <div class="services-container">
+    <table>
+      <tbody><!-- ngRepeat: service in services | orderBy:serviceSortOrder --><tr ng-repeat="service in services | orderBy:serviceSortOrder" class="service facebook">
+
+        <!-- ngIf: !service.isConnected() --><td class="connect name ng-binding ng-scope" ng-click="connectService({service: service})" ng-if="!service.isConnected()">
+          Facebook
+        </td><!-- end ngIf: !service.isConnected() -->
+        <!-- ngIf: !service.isConnected() --><td class="connect action ng-binding ng-scope" ng-click="connectService({service: service})" ng-if="!service.isConnected()">
+          Connect
+        </td><!-- end ngIf: !service.isConnected() -->
+
+
+        <!-- ngIf: service.isConnected() -->
+        <!-- ngIf: service.isConnected() -->
+      </tr><!-- end ngRepeat: service in services | orderBy:serviceSortOrder --><tr ng-repeat="service in services | orderBy:serviceSortOrder" class="service flickr">
+
+        <!-- ngIf: !service.isConnected() --><td class="connect name ng-binding ng-scope" ng-click="connectService({service: service})" ng-if="!service.isConnected()">
+          Flickr
+        </td><!-- end ngIf: !service.isConnected() -->
+        <!-- ngIf: !service.isConnected() --><td class="connect action ng-binding ng-scope" ng-click="connectService({service: service})" ng-if="!service.isConnected()">
+          Connect
+        </td><!-- end ngIf: !service.isConnected() -->
+
+
+        <!-- ngIf: service.isConnected() -->
+        <!-- ngIf: service.isConnected() -->
+      </tr><!-- end ngRepeat: service in services | orderBy:serviceSortOrder --><tr ng-repeat="service in services | orderBy:serviceSortOrder" class="service instagram">
+
+        <!-- ngIf: !service.isConnected() --><td class="connect name ng-binding ng-scope" ng-click="connectService({service: service})" ng-if="!service.isConnected()">
+          Instagram
+        </td><!-- end ngIf: !service.isConnected() -->
+        <!-- ngIf: !service.isConnected() --><td class="connect action ng-binding ng-scope" ng-click="connectService({service: service})" ng-if="!service.isConnected()">
+          Connect
+        </td><!-- end ngIf: !service.isConnected() -->
+
+
+        <!-- ngIf: service.isConnected() -->
+        <!-- ngIf: service.isConnected() -->
+      </tr><!-- end ngRepeat: service in services | orderBy:serviceSortOrder --><tr ng-repeat="service in services | orderBy:serviceSortOrder" class="service picasa">
+
+        <!-- ngIf: !service.isConnected() --><td class="connect name ng-binding ng-scope" ng-click="connectService({service: service})" ng-if="!service.isConnected()">
+          Picasa
+        </td><!-- end ngIf: !service.isConnected() -->
+        <!-- ngIf: !service.isConnected() --><td class="connect action ng-binding ng-scope" ng-click="connectService({service: service})" ng-if="!service.isConnected()">
+          Connect
+        </td><!-- end ngIf: !service.isConnected() -->
+
+
+        <!-- ngIf: service.isConnected() -->
+        <!-- ngIf: service.isConnected() -->
+      </tr><!-- end ngRepeat: service in services | orderBy:serviceSortOrder -->
+    </tbody></table>
+  </div>
+
+
+</div></external-services-list></div>
+  </div>
+  <div class="description">
+    <!-- ngIf: !canShowExternalForFree() --><p class="ng-binding ng-scope" ng-if="!canShowExternalForFree()">
+      Upload your own images, or use our Free from Wix and Bigstock collections.
+    </p><!-- end ngIf: !canShowExternalForFree() -->
+    <!-- ngIf: canShowExternalForFree() -->
+    <!-- ngIf: !canShowExternal() -->
+    <!-- ngIf: canShowExternal() --><p class="ng-binding ng-scope" ng-if="canShowExternal()">
+      You can upload images up to 15MB as JPEG, PNG or GIF files. You 
+can also connect networks like Facebook, to add images to your site.
+    </p><!-- end ngIf: canShowExternal() -->
+  </div>
+  <ul>
+    <li class="active" ng-show="canShowPrivate()" ng-class="{ active: isCurrentTab('my') }">
+      <a class="ng-binding" href="#/my" wix-bi-event="{ click: {name: 'tabClicked', attributes:{name: 'private'}} }">My Images</a>
+    </li>
+    <li class="" ng-show="canShowFree()" ng-class="{ active: isCurrentTab('publicMedia') }">
+      <a href="#/dynamic_public_media" wix-bi-event="{ click: {name: 'tabClicked', attributes:{name: 'public'}} }">
+        <span class="ng-binding" ng-bind-html="publicMediaTabName">Free from <span class="logo"></span></span>
+      </a>
+    </li>
+    <li class="ng-hide" ng-show="canShowExternalForFree()" ng-class="{ active: isCurrentTab('external_for_free') }">
+      <a href="#/external_for_free" wix-bi-event="{ click: {name: 'tabClicked', attributes:{name: 'external_for_free'}} }">
+        <span class="ng-binding">
+          Free from web
+        </span>
+      </a>
+    </li>
+    <li class="" ng-show="canShowPhotoStock()" ng-class="{ active: isCurrentTab('photo_stock') }">
+      <a href="#/photo_stock" wix-bi-event="{ click: {name: 'tabClicked', attributes:{name: 'photo_stock'}} }">
+        <span class="ng-binding">
+          Bigstock Images
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</header>
+<div class="content ng-scope" ng-controller="MediaGallery.privateMedia.UploadCtrl">
+  <!-- ngIf: !isAnyExternalServiceSelected() --><ul class="actions ng-scope" ng-if="!isAnyExternalServiceSelected()">
+    <li>
+
+      <wix-delayed-search class="ng-isolate-scope" can-search="canSort()" search="search.perform(query)" clear-search="search.clear()"><form class="search ng-pristine ng-valid">
+  <input class="ng-pristine ng-valid" maxlength="128" ng-model="query" ng-disabled="!canSearch" type="text">
+  <input class="ng-hide" value="×" ng-click="clearQuery()" ng-hide="isEmpty()" type="reset">
+</form>
+</wix-delayed-search>
+    </li>
+    <li>
+      <wix-sort-by class="ng-isolate-scope" can-sort="canSort()" selected-field="getSelectedSortField()" fields="sortFields" bi-prefix="privateMedia" select-field="selectSortField(field)"><span class="sort-by">
+  <!-- ngRepeat: field in fields --><a class="ng-binding ng-scope active" ng-repeat="field in fields" wix-disabled="!canSort" ng-click="selectField({field: field})" ng-class="{ active : isSelected(field) }" wix-bi-event="{ click: biPrefix + field.biEventName }">Date</a><!-- end ngRepeat: field in fields --><a class="ng-binding ng-scope" ng-repeat="field in fields" wix-disabled="!canSort" ng-click="selectField({field: field})" ng-class="{ active : isSelected(field) }" wix-bi-event="{ click: biPrefix + field.biEventName }">A-Z</a><!-- end ngRepeat: field in fields -->
+</span></wix-sort-by>
+    </li>
+    <li>
+      <a class="remove-images ng-scope" ng-controller="MediaGallery.privateMedia.RemoveItemsCtrl" wix-disabled="!canRemoveSelectedItems()" ng-click="removeSelectedItems()"><i></i></a>
+    </li>
+    <li>
+      <wix-select-all class="ng-isolate-scope" can-toggle-selection="canToggleSelection()" is-all-selected="isAllItemsSelected()" select-all="selectAllItems()" select-none="selectNoneItems()"><div class="toggle-all-items-selection dropdown" ng-class="{'selected': isAllSelected}" wix-disabled="!canToggleSelection">
+  <div class="checkbox-area" ng-click="toggleSelection()">
+    <input ng-checked="isAllSelected" ng-disabled="!canToggleSelection" type="checkbox">
+  </div>
+  <a class="dropdown-toggle" wix-disabled="!canToggleSelection"></a>
+  <div class="dropdown-menu bottom">
+    <div class="arrow"></div>
+    <div class="popover-content">
+      <a class="ng-binding" ng-click="selectAll()">Select All</a>
+      <a class="ng-binding" ng-click="selectNone()">Select None</a>
+    </div>
+  </div>
+</div></wix-select-all>
+    </li>
+  </ul><!-- end ngIf: !isAnyExternalServiceSelected() -->
+  <div class="main ng-scope" ng-controller="MediaGallery.SettingsCtrl" ng-class="{ 'no-sidebar' : !canShowFolders() }">
+    <div ng-show="canShowFolders()" class="folders ng-scope" ng-controller="MediaGallery.privateMedia.FoldersListCtrl">
+      <div class="collections">
+        <ul>
+          <li class="current" ng-class="{ current : selectedAll }">
+            <a class="title all-media" ng-click="selectAll()" wix-bi-event="{ click: 'privateMediaAllItemsClicked' }">
+              <span class="folder-name ng-binding">All Media</span>
+              <span class="size ng-binding" ng-bind="getAllItemsCount()">13</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Unsorted folder -->
+        <folders-list class="ng-isolate-scope" get-folders="getSystemFolders()" items-count="getFolderSize(folder)" can-show-actions="canShowActions(folder)" on-drop="moveSelectedItems(folder)" select="selectFolder(folder)" selected="selectedFolder" rename="renameFolder(folder, newName, flow)" remove="removeFolder(folder)">
+<ul>
+  <!-- ngRepeat: folder in getFolders() | orderBy:sortOrder --><li class="tooltip-parent ng-scope jqui-dnd-target ui-droppable" ng-repeat="folder in getFolders() | orderBy:sortOrder" ng-class="{ current : isSelected(folder) }" jqui-drop-commit="onDrop({folder: folder})" title="">
+
+    <renamable-folder-name class="ng-isolate-scope" folder="folder" rename="rename({folder: folder, newName: newName, flow: flow})" select="select({folder: folder})" is-renaming="isRenaming(folder)" cancel-renaming="cancelRenaming()" items-count="itemsCount({folder: folder})">
+<a class="title unsorted" ng-hide="isRenaming" ng-click="select({folder: folder})" wix-bi-event="{ click: biPrefix + 'FolderClicked' }" ng-class="{unsorted: folder.getName() == '/'}">
+  
+  <!-- ngIf: folder.getName() == "/" --><span ng-if="folder.getName() == &quot;/&quot;" class="folder-name ng-binding ng-scope">
+    Unsorted
+  </span><!-- end ngIf: folder.getName() == "/" -->
+  <!-- ngIf: folder.getName() != "/" -->
+  <span class="size ng-binding" ng-bind="itemsCount" ng-show="itemsCount != null">13</span>
+</a>
+
+<form style="display: none;" class="rename-folder ng-pristine ng-valid">
+
+  <input value="/" class="ng-pristine ng-valid" folder-name-validate="" wix-click-outside-and-commit="rename({folder: folder, newName: folderName, flow: flow})" ng-model="folderName" type="text">
+
+  <input ng-click="cancelRenaming({folder: folder})" value="×" type="button">
+</form></renamable-folder-name>
+
+    <!-- ngIf: folder.getName() != "/" -->
+    <div class="tooltip edit-folder-actions" ng-switch="" on="canShowActions({folder: folder})">
+      <!-- ngSwitchWhen: true --><div class="ng-scope" ng-switch-when="true">
+        <a class="rename-folder ng-binding" ng-click="showRenaming(folder)" wix-bi-event="{ click: biPrefix + 'RenameFolderClicked' }">Rename</a>
+        <a class="remove-folder ng-binding" ng-click="remove({folder: folder})" wix-bi-event="{ click: biPrefix + 'RemoveFolderClicked' }">Remove folder</a>
+      </div>
+      <!-- ngSwitchWhen: false -->
+    </div>
+  </li><!-- end ngRepeat: folder in getFolders() | orderBy:sortOrder -->
+</ul></folders-list>
+
+        <!-- External services -->
+        <!-- ngIf: canShowExternal() --><folders-list class="external-service ng-scope ng-isolate-scope" ng-if="canShowExternal()" get-folders="getExternalServices()" items-count="getExternalServiceItemsCount(folder)" on-drop="notifyCantMoveToExternalService(folder)" select="selectExternalService(folder)" selected="getSelectedExternalService()">
+<ul>
+  <!-- ngRepeat: folder in getFolders() | orderBy:sortOrder -->
+</ul></folders-list><!-- end ngIf: canShowExternal() -->
+
+
+        <!-- User folders -->
+        <folders-list class="ng-isolate-scope" get-folders="getUserFolders()" items-count="getFolderSize(folder)" can-show-actions="canShowActions(folder)" on-drop="moveSelectedItems(folder)" select="selectFolder(folder)" selected="selectedFolder" rename="renameFolder(folder, newName, flow)" remove="removeFolder(folder)">
+<ul>
+  <!-- ngRepeat: folder in getFolders() | orderBy:sortOrder -->
+</ul></folders-list>
+        <ul>
+          <li class="add-folder" ng-class="{ active : isAddingFolder }">
+            <form class="ng-pristine ng-valid">
+              <input class="ng-pristine ng-valid" folder-name-validate="" ng-model="folderName" focus-me="isAddingFolder" wix-click-outside-and-commit="addFolder(flow)" type="text">
+              <input ng-click="cancel()" value="×" type="button">
+              <!-- <input type="submit" value="✓"/> -->
+            </form>
+          </li>
+        </ul>
+      </div>
+
+      <div class="add-folder" ng-class="{ active : isAddingFolder }">
+        <a class="ng-binding" ng-click="newFolder()" wix-bi-event="{ click: 'privateMediaNewFolderClicked' }"><i></i>Add Folder</a>
+      </div>
+
+    </div>
+
+
+
+    <!-- Private Media -->
+
+    <!-- ngIf: !isAnyExternalServiceSelected() --><article class="ng-scope" ng-if="!isAnyExternalServiceSelected()" file-droppable="handleFileSelect(files)" when-scrolled="showMoreItems()" wix-bi-event="{ drop: { name: 'itemsDropped', attributes: { tab: 'private', selectedFolder: selectedFolder.getName(), hadItems: items.length &gt; 0 } } }">
+
+
+      <div class="loading ng-hide" ng-show="!isItemsLoaded()"></div>
+
+      <!-- ngInclude: '_uploads.html' --><div class="ng-scope" ng-include="'_uploads.html'"><div class="uploads ng-scope ng-hide" ng-show="canShowUploads()">
+  <!-- ngRepeat: (index, chunk) in filesToUpload.chunks() -->
+</div></div>
+
+      <wix-no-items class="ng-isolate-scope ng-hide" ng-show="search.hasNoResults() &amp;&amp; !search.isInProgress() &amp;&amp; isItemsLoaded()" template-name="no-search-results" search-query="search.getQuery()" folder-name="All Media"><div class="no-images ng-scope">
+  <!-- ngIf: folderName --><h3 class="ng-binding ng-scope" ng-if="folderName">
+    Sorry, no results found in "All Media" for ""
+  </h3><!-- end ngIf: folderName -->
+  <!-- ngIf: !folderName -->
+</div></wix-no-items>
+
+      <div class="gallery private">
+
+        <wix-search-results-title class="ng-isolate-scope ng-hide" ng-show="search.hasResults() &amp;&amp; !search.isInProgress() &amp;&amp; isItemsLoaded()" search-query="search.getQuery()" clear-search="search.clear()">
+<h5 class="search-results-header">
+  <span class="prefix ng-binding">Showing search results for: </span>
+  <span class="query ng-binding">""</span>
+  <a href="" ng-click="clearSearch()">×</a>
+</h5></wix-search-results-title>
+
+        <!-- ngInclude: '_notifications.html' --><div class="ng-scope" ng-include="'_notifications.html'">
+<ul class="notifications ng-scope ng-hide" ng-controller="MediaGallery.NotificationsCtrl" ng-show="notifications.length &gt; 0">
+  <!-- ngRepeat: notification in notifications track by notification.id -->
+</ul></div>
+
+
+        <!-- ngIf: !hasNoItems() --><responsive-grid-items class="ng-scope ng-isolate-scope" ng-if="!hasNoItems()" get-items="getItems" get-folder="getSelectedFolder" bi-prefix="privateMedia" magnifying-glass-template="magnifying_glass.html" double-click="selectItemAndProceed(item)" can-edit="canEditItemAtAviary(item)" edit="editItemAtAviary(item)" can-rename="canRenameItem(item)" rename="renameItem(item, newName, flow)" can-remove="canRemoveItem(item)" remove="removeItem(item)" can-download="canDownloadItem(item)" get-download-link="linkToDownloadable(item)" can-drag="canDrag(item)"><ul class="items" grid-columns="6" wix-responsive-grid="13">
+  <!-- ngRepeat: item in getItems() --><li class="tooltip-parent user picture selected" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="6.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 800 x 600" preview-name="6.jpg" preview-url="http://static.wixstatic.com/media/88d699_1ddfa17fa4cc432c84fbf22721246827.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="6.jpg" download="6.jpg" href="http://static.wixstatic.com/media/88d699_1ddfa17fa4cc432c84fbf22721246827.jpg?dn=6.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_1ddfa17fa4cc432c84fbf22721246827.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_1ddfa17fa4cc432c84fbf22721246827.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  6.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="6.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture selected" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="5.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 800 x 600" preview-name="5.jpg" preview-url="http://static.wixstatic.com/media/88d699_b7052ced9d1f4dcab51ffa9ccb8086d0.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="5.jpg" download="5.jpg" href="http://static.wixstatic.com/media/88d699_b7052ced9d1f4dcab51ffa9ccb8086d0.jpg?dn=5.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_b7052ced9d1f4dcab51ffa9ccb8086d0.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_b7052ced9d1f4dcab51ffa9ccb8086d0.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  5.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="5.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture selected" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="3.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 800 x 600" preview-name="3.jpg" preview-url="http://static.wixstatic.com/media/88d699_0308f8bc90f546dcb2b962bad9c74625.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="3.jpg" download="3.jpg" href="http://static.wixstatic.com/media/88d699_0308f8bc90f546dcb2b962bad9c74625.jpg?dn=3.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_0308f8bc90f546dcb2b962bad9c74625.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_0308f8bc90f546dcb2b962bad9c74625.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  3.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="3.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture selected" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="2.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 800 x 600" preview-name="2.jpg" preview-url="http://static.wixstatic.com/media/88d699_980482db085948bf98324702190df46f.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="2.jpg" download="2.jpg" href="http://static.wixstatic.com/media/88d699_980482db085948bf98324702190df46f.jpg?dn=2.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_980482db085948bf98324702190df46f.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_980482db085948bf98324702190df46f.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  2.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="2.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture selected" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="1.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 800 x 600" preview-name="1.jpg" preview-url="http://static.wixstatic.com/media/88d699_ab55562671e3489faf948bf5b36d62bb.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="1.jpg" download="1.jpg" href="http://static.wixstatic.com/media/88d699_ab55562671e3489faf948bf5b36d62bb.jpg?dn=1.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_ab55562671e3489faf948bf5b36d62bb.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_ab55562671e3489faf948bf5b36d62bb.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  1.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="1.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture selected" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="5.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 560 x 420" preview-name="5.jpg" preview-url="http://static.wixstatic.com/media/88d699_925db3fdd04a4c91a510ab5b42207ef0.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="5.jpg" download="5.jpg" href="http://static.wixstatic.com/media/88d699_925db3fdd04a4c91a510ab5b42207ef0.jpg?dn=5.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_925db3fdd04a4c91a510ab5b42207ef0.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_925db3fdd04a4c91a510ab5b42207ef0.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  5.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="5.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture selected" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="4.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 560 x 420" preview-name="4.jpg" preview-url="http://static.wixstatic.com/media/88d699_bbc3673a3b124ca8b1e153dafb1b6fca.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="4.jpg" download="4.jpg" href="http://static.wixstatic.com/media/88d699_bbc3673a3b124ca8b1e153dafb1b6fca.jpg?dn=4.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_bbc3673a3b124ca8b1e153dafb1b6fca.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_bbc3673a3b124ca8b1e153dafb1b6fca.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  4.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="4.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture selected" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="3.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 560 x 420" preview-name="3.jpg" preview-url="http://static.wixstatic.com/media/88d699_089d1b7004bc4d7c8b863f583ab42942.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="3.jpg" download="3.jpg" href="http://static.wixstatic.com/media/88d699_089d1b7004bc4d7c8b863f583ab42942.jpg?dn=3.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_089d1b7004bc4d7c8b863f583ab42942.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_089d1b7004bc4d7c8b863f583ab42942.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  3.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="3.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture selected" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="2.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 560 x 420" preview-name="2.jpg" preview-url="http://static.wixstatic.com/media/88d699_88ad3f045e724e6781b7d67d3848a0f3.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="2.jpg" download="2.jpg" href="http://static.wixstatic.com/media/88d699_88ad3f045e724e6781b7d67d3848a0f3.jpg?dn=2.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_88ad3f045e724e6781b7d67d3848a0f3.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_88ad3f045e724e6781b7d67d3848a0f3.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  2.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="2.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="1.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 560 x 420" preview-name="1.jpg" preview-url="http://static.wixstatic.com/media/88d699_d7c74fe7b6d24cb3bbf631a5753e7e3c.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="1.jpg" download="1.jpg" href="http://static.wixstatic.com/media/88d699_d7c74fe7b6d24cb3bbf631a5753e7e3c.jpg?dn=1.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_d7c74fe7b6d24cb3bbf631a5753e7e3c.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_d7c74fe7b6d24cb3bbf631a5753e7e3c.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  1.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="1.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture selected" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="4.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 1024 x 768" preview-name="4.jpg" preview-url="http://static.wixstatic.com/media/88d699_c701f30dcd034c4cbdbe4892ebfabb07.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="4.jpg" download="4.jpg" href="http://static.wixstatic.com/media/88d699_c701f30dcd034c4cbdbe4892ebfabb07.jpg?dn=4.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_c701f30dcd034c4cbdbe4892ebfabb07.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_c701f30dcd034c4cbdbe4892ebfabb07.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  4.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="4.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="1.jpg">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 1024 x 768" preview-name="1.jpg" preview-url="http://static.wixstatic.com/media/88d699_8a0c7ff50aef4b4bb11ff854b544873f.jpg_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="1.jpg" download="1.jpg" href="http://static.wixstatic.com/media/88d699_8a0c7ff50aef4b4bb11ff854b544873f.jpg?dn=1.jpg" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_8a0c7ff50aef4b4bb11ff854b544873f.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: cover;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_8a0c7ff50aef4b4bb11ff854b544873f.jpg_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  1.jpg
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="1.jpg" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() --><li class="tooltip-parent user picture" ng-repeat="item in getItems()" ng-class="{ selected: isSelected(item) }" ng-dblclick="doubleClick({item: item})" jqui-can-drag="canDrag(item)" jqui-drag-begin="dragStart(item)" wix-select-item="" jqui-helper="selectionHelper(item)" item="item" get-all-items="getItems" title="logo.gif">
+
+
+    <item-actions class="ng-isolate-scope" item="item" magnifying-glass-template="magnifyingGlassTemplate" can-edit="canEdit({item: item})" can-remove="canRemove({item: item})" can-rename="canRename({item: item})" can-download="canDownload({item: item})" edit="edit({item: item})" remove="remove({item: item})" show-renaming="showRenaming(item)" get-download-link="getDownloadLink({item: item})">
+<div class="image-actions-wrapper">
+
+  <div class="image-actions">
+
+
+    <div wix-conditional-template="magnifying_glass.html"></div><div class="peek-wrapper ng-scope">
+  <a class="peek ng-isolate-scope" href="" wix-show-preview="" preview-subtitle="Image Size: 104 x 92" preview-name="logo.gif" preview-url="http://static.wixstatic.com/media/88d699_20c4e625a43f44b8affbba77ffe80812.gif_srb_375_275_75_22_0.2_0.20_0.00_jpg_srb">Peek</a>
+</div>
+
+    <a class="edit-image-toggle" ng-show="canShowActions()" wix-tooltip="{posy:'bottom', posx:'right', content:'.edit-image', centered:'true', event:'click', parent:'.tooltip-parent', style:'menu', fitToElement: 'window'}">
+      Edit
+    </a>
+    <div class="tooltip edit-image">
+
+      <!-- ngIf: canRename --><a class="rename-item ng-binding ng-scope" ng-if="canRename" ng-click="showRenaming({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Rename
+      </a><!-- end ngIf: canRename -->
+
+      <!-- ngIf: canEdit --><a class="edit-item ng-binding ng-scope" ng-if="canEdit" ng-click="edit({item: item})" wix-bi-event="{ click: biPrefix + 'EditItemClicked' }">
+        Edit Image
+      </a><!-- end ngIf: canEdit -->
+
+      <!-- ngIf: canDownload --><a class="download-item ng-binding ng-scope" ng-if="canDownload" title="logo.gif" download="logo.gif" href="http://static.wixstatic.com/media/88d699_20c4e625a43f44b8affbba77ffe80812.gif?dn=logo.gif" target="_blank" wix-bi-event="{ click: biPrefix + 'DownloadItemClicked' }">
+        Download
+      </a><!-- end ngIf: canDownload -->
+
+      <!-- ngIf: canRemove --><a class="remove-item ng-binding ng-scope" ng-if="canRemove" ng-click="remove({item: item})" wix-bi-event="{ click: biPrefix + 'RemoveItemClicked' }">
+        Remove
+      </a><!-- end ngIf: canRemove -->
+    </div>
+  </div>
+
+</div>
+
+
+</item-actions>
+
+
+    <div class="transcoding-status" ng-class="item.getTranscodingStatus().toLowerCase()">
+     <span class="ng-binding">
+       Transcoding status:
+       <br>
+       
+     </span>
+    </div>
+
+
+    
+    <div style="background-image: url(&quot;http://static.wixstatic.com/media/88d699_20c4e625a43f44b8affbba77ffe80812.gif_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz&quot;); background-size: auto auto;" class="image-wrapper ng-isolate-scope" covered-background="http://static.wixstatic.com/media/88d699_20c4e625a43f44b8affbba77ffe80812.gif_srz_170_170_75_22_0.2_0.20_0.00_jpg_srz"></div>
+
+    <wix-renamable-item-name class="ng-isolate-scope" item="item" rename="rename({item: item, newName: newName, flow: flow})" is-renaming="isRenaming(item)" cancel-renaming="cancelRenaming()">
+<span class="name ng-binding" ng-hide="isRenaming">
+  logo.gif
+</span>
+
+<form style="display: none;" class="rename-item ng-pristine ng-valid">
+
+  <input value="logo.gif" class="ng-pristine ng-valid" item-name-validate="" wix-click-outside-and-commit="rename({item: item, newName: itemName, flow: flow})" ng-model="itemName" type="text">
+
+</form></wix-renamable-item-name>
+  </li><!-- end ngRepeat: item in getItems() -->
+</ul></responsive-grid-items><!-- end ngIf: !hasNoItems() -->
+
+      </div>
+      <div class="ng-scope" ng-controller="MediaGallery.privateMedia.UploadCtrl">
+        <wix-no-items class="ng-isolate-scope ng-hide" template-name="no-images" on-files-choose="handleFileSelect(files)" can-upload-files="supportsHtml5Uploads" accept-files-types="getAcceptedFileTypes()" folder-name="All Media" ng-show="hasNoItems() &amp;&amp; isItemsLoaded() &amp;&amp; !search.hasNoResults() &amp;&amp; !(canShowExternal() &amp;&amp; isWorkStart())"><div class="no-images ng-scope">
+  <h3 class="ng-binding">There are no images in "All Media".</h3>
+  <p class="ng-binding" ng-show="canUploadFiles">
+    Add your images by dragging them into this window, or click
+
+    <!-- ngInclude: 'scripts/directives/no_items/_upload.html' --><span class="ng-scope" ng-include="'scripts/directives/no_items/_upload.html'"><a class="ng-binding ng-scope" wix-upload="" accept="image/*" wix-files-choosen="onFilesChoose({files: files})" wix-bi-event="{ click: 'uploadButtonInEmptyFolderClicked' }">Upload Images</a>
+</span>
+  </p>
+</div></wix-no-items>
+
+        <wix-no-items class="ng-isolate-scope ng-hide" template-name="start-work" on-files-choose="handleFileSelect(files)" can-upload-files="supportsHtml5Uploads" accept-files-types="getAcceptedFileTypes()" connect-external-services="connectExternalServices()" ng-show="canShowExternal() &amp;&amp; isWorkStart() &amp;&amp; !search.hasNoResults()"><div class="no-images ng-scope">
+  <h3 class="ng-binding">Add Your Own Images to Your Website</h3>
+  <p class="" ng-show="canUploadFiles" translate-html="[&quot;private_media.start_work.text&quot;,&quot;&lt;a wix-upload\n  accept=\&quot;{{acceptFilesTypes}}\&quot;\n  wix-files-choosen=\&quot;onFilesChoose({files: files})\&quot;\n  wix-bi-event=\&quot;{ click: 'uploadButtonInEmptyFolderClicked' }\&quot;\n  &gt;{{ 'private_media.start_work.desktop' | translate }}&lt;/a&gt;&quot;,&quot;&lt;a ng-click=\&quot;connectExternalServices()\&quot;\n    &gt;{{ 'private_media.start_work.social_networks' | translate }}&lt;/a&gt;&quot;]"><span class="ng-scope">Upload your images from your <a class="ng-binding" wix-upload="" accept="image/*" wix-files-choosen="onFilesChoose({files: files})" wix-bi-event="{ click: 'uploadButtonInEmptyFolderClicked' }">desktop</a>, or from your <a class="ng-binding" ng-click="connectExternalServices()">social networks</a></span></p>
+</div></wix-no-items>
+
+      </div>
+
+    </article><!-- end ngIf: !isAnyExternalServiceSelected() -->
+
+    <!-- External services -->
+    <!-- ngIf: isAnyExternalServiceSelected() -->
+
+    <div class="clearfix"></div>
+  </div>
+  <footer>
+    <!-- ngInclude: '_footer.html' --><div class="ng-scope" ng-include="'_footer.html'"><div class="selection ng-scope" ng-controller="MediaGallery.privateMedia.SelectionCtrl">
+  <div ng-switch="" on="supportsMultipleItems()">
+    <!-- ngSwitchWhen: true --><div class="ng-scope" ng-switch-when="true">
+      <div ng-switch="" on="selectedCount()">
+        <!-- ngSwitchWhen: 0 -->
+        <!-- ngSwitchWhen: 1 -->
+        <!-- ngSwitchDefault:  --><div class="ng-binding ng-scope" ng-switch-default="">10 items selected</div>
+      </div>
+    </div>
+    <!-- ngSwitchDefault:  -->
+  </div>
+</div>
+</div>
+    <div class="ng-scope" ng-controller="MediaGallery.ProtocolCtrl.Items">
+      <div class="ng-scope" ng-controller="MediaGallery.privateMedia.ProceedCtrl">
+        <a wix-tooltip="{posy:'top', posx:'right', content:'.proceed-error', centered:false, event:'mouseenter', style:'error'}" class="change-image ng-binding" wix-disabled="!canProceed()" ng-click="proceed()">
+          Add Images
+        </a>
+        <div class="tooltip proceed-error ng-binding">
+          
+        </div>
+      </div>
+    </div>
+
+  </footer>
+</div>
+</div>
+
+  <script type="text/javascript">
+  document.write('<img src="' + STATIC_URL_PREFIX + 'images/ajax-loader.gif" class="spinner" alt="Spinner">'); // DO WE NEED THIS?
+  </script><img src="index_data/ajax-loader.gif" class="spinner" alt="Spinner">
+
+  <script type="text/javascript">
+    if (!NREUMQ.f) {
+      NREUMQ.f=function() {
+        NREUMQ.push(["load",new Date().getTime()]);
+        var e=document.createElement("script");
+        e.type="text/javascript";e.async=true;e.src="https://rpm-images.newrelic.com/42/eum/rum.js";
+        document.body.appendChild(e);
+        if(NREUMQ.a)NREUMQ.a();
+      };
+      NREUMQ.a=window.onload;window.onload=NREUMQ.f;
+    };
+    NREUMQ.push(["nrfj","beacon-2.newrelic.com","27807f3c9c",1910501,"cFhcEERfCF4ER05HA1RSQUtfXgBXGQ==",0,17,new Date().getTime(),"","","","",""])
+  </script>
+  <script>
+    MediaGallery.appLoadNotifiers.domLoadFinished();
+  </script>
+
+
+
+<script src="index_data/rum.js" async="" type="text/javascript"></script></body></html>

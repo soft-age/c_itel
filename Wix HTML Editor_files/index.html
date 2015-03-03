@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="ng-scope" ng-app="organizeImages"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Organize Images</title>
+    <link rel="stylesheet" href="index_data/style.css">
+<style></style></head>
+<body>
+    <div class="wrap">
+	<div class="main popup">
+		<header class="popup-header">
+			<h1 translate="">Organize Your Gallery Images</h1>
+			<i class="icon-help" ng-click="openHelpDialog()"></i>
+			<a class="close" bi-event="ORGIMAGES_CLICK_CLOSE" ng-click="save()">
+				<i></i>
+			</a>
+		</header>
+		<section class="popup-content">
+			<div selected-img="selectedImg" preview="preview" class="sets ng-isolate-scope" ng-class="{img: selectedImg.id}">
+    <nav class="switcher">
+        <a class="triangle left" ng-click="selectImg(-1)" ng-class="{disabled: !selectedImg.position}"></a>
+                <span class="num">
+                    <span class="current ng-binding">0</span>/<span class="of ng-binding">0</span>
+                </span>
+        <a class="triangle right disabled" ng-click="selectImg(1)" ng-class="{disabled: selectedImg.position === images.length - 1}"></a>
+    </nav>
+    <div class="buttonSet">
+        <button disabled="disabled" translate="" tabindex="3" class="replace gray" ng-disabled="!selectedImg.id" ng-click="openMediaGallery()" bi-event="ORGIMAGES_CLICK_REPLACE">Replace Image</button>
+        <button disabled="disabled" tabindex="4" class="edit gray" ng-disabled="!selectedImg.id"><i></i></button>
+    </div>
+    <fieldset class="previewCont">
+        <!--<header>-->
+            <!--<span>Drag this image to crop</span>-->
+            <!--<i class="settings"></i>-->
+            <!--<i class="icon-help tooltip" data-tooltip="Some explanation text will be here"></i>-->
+        <!--</header>-->
+        <div class="preview">
+            <!--<figure ng-style="{'background-image': getUrl(), 'height': height, 'width': width}" ng-class="thumb().mode"></figure>-->
+            <figure style="background-image: none; height: 256px; width: 256px;" ng-style="{'background-image': getUrl(), 'height': height, 'width': width}">
+            </figure>
+            <p translate="">No Image Selected</p>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="row">
+            <label translate="">Title</label>
+            <i translate="" class="icon-help tooltip" data-tooltip="Give your image a unique title. To see how and when this title gets displayed, you'll need to Preview your website."></i>
+            <input disabled="disabled" name="title" translate="" tabindex="5" placeholder="Add your title here" class="uilib-input ng-pristine ng-valid" ng-disabled="!selectedImg.id" ng-model="selectedImg.data.title" ng-keydown="keyDown($event)" maxlength="36" ng-change="change()" bi-event="ORGIMAGES_EDIT_TITLE" data-bi-event-type="change" data-bi-event-bind="on" data-bi-event-collect="true" type="text">
+        </div>
+        <div class="row">
+            <label translate="">Description</label>
+            <i translate="" class="icon-help tooltip" data-tooltip="Add some more info to tell people more about your image. To see how and when this description gets displayed, you'll need to Preview your website."></i>
+            <textarea disabled="disabled" name="description" translate="" tabindex="6" placeholder="Tell people more about your image." class="uilib-input ng-pristine ng-valid" ng-disabled="!selectedImg.id" ng-model="selectedImg.data.description" ng-keydown="keyDown($event)" maxlength="500" ng-change="change()" bi-event="ORGIMAGES_EDIT_DESCRIPTION" data-bi-event-type="change" data-bi-event-bind="on" data-bi-event-collect="true"></textarea>
+        </div>
+        <div class="row link">
+            <label translate="">Link</label>
+            <input name="link" translate="" placeholder="Add a link to your image" class="uilib-input ng-pristine ng-valid" disabled="disabled" ng-model="selectedImg.linkText" ng-keydown="$event.stopPropagation()" maxlength="1024" type="text">
+            <span class="overlay" ng-click="openLinkDialog($event)"></span>
+            <button disabled="disabled" tabindex="7" class="gray" ng-disabled="!selectedImg.id" ng-click="openLinkDialog($event)">
+                <i></i>
+            </button>
+        </div>
+    </fieldset>
+</div>
+			<div class="imageList">
+				<p translate="" class="description">Drag and drop your images into position to get your gallery nicely organized.</p>
+				<button translate="" tabindex="2" class="orange add" bi-event="ORGIMAGES_CLICK_ADD_IMAGES" ng-click="openMediaGallery()">Add Images</button>
+				<div class="content">
+					<div preview="preview" remove-image="removeImage" show-peek="showPeek" hide-peek="hidePeek" selected-img="selectedImg" confirm="confirm" tabindex="1" class="items animation ng-isolate-scope">
+    <!-- ngRepeat: img in images -->
+</div>
+					<div class="emptyGallery" ng-show="!images.length">
+						<p translate="" class="message">Let's add an image to your gallery</p>
+						<div class="arrow"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="popup-footer">
+			<button translate="" class="gray" bi-event="ORGIMAGES_CLICK_CANCEL" ng-click="showConfirm(confirmSets)">Cancel</button>
+			<button translate="" class="blue" ng-click="save()">Done</button>
+		</div>
+		<figure style="left: 443.3px; top: 264px;" id="peek" class="zoom ng-isolate-scope" zoom="" zoom-img="zoomImg" zoom-visible="zoomVisible"><img src="index_data/a" ng-src="//:0">
+<figcaption>
+    <!-- ngIf: zoomImg -->
+    <!-- ngIf: zoomImg -->
+</figcaption></figure>
+		<div class="preloader" ng-class="{show: preloader}">
+			<div class="spinner"></div>
+		</div>
+		<div class="confirm" ng-class="{show: confirm.message}">
+			<section class="popup">
+				<header class="popup-header">
+					<h1 translate="">Just a Sec...</h1>
+					<a class="close" ng-click="hideConfirm()">
+						<i></i>
+					</a>
+				</header>
+				<div class="popup-content">
+					<p class="ng-binding" translate=""></p>
+				</div>
+				<footer class="popup-footer">
+					<button class="gray" bi-event="ORGIMAGES_CLICK_CONFIRMATION" data-bi-event-param="no" ng-click="hideConfirm()" translate="">No</button>
+					<button class="blue" bi-event="ORGIMAGES_CLICK_CONFIRMATION" data-bi-event-param="yes" ng-click="confirm.callback()" translate="">Yes</button>
+				</footer>
+			</section>
+		</div>
+	</div>
+</div>
+
+    <script src="Wix%20HTML%20Editor_files/ga.js" async="" type="text/javascript"></script><script src="index_data/jquery.js"></script>
+    <script src="index_data/angular.js"></script>
+    <script src="index_data/Wix.js"></script>
+    <script src="index_data/ui-lib.js"></script>
+    <script src="index_data/PMS.js"></script>
+
+    <!--module translation-->
+    <script src="index_data/translation.js"></script>
+    <script src="index_data/translationService.js"></script>
+    <script src="index_data/translateDirective.js"></script>
+    
+    <!--module bi-->
+    <script src="index_data/bi.js"></script>
+    <script src="index_data/biService.js"></script>
+    <script src="index_data/biDirective.js"></script>
+
+    <!--main module-->
+    <script src="index_data/app.js"></script>
+    <script src="index_data/transportService.js"></script>
+    <script src="index_data/mediaGalleryService.js"></script>
+    <script src="index_data/dialogDirective.js"></script>
+    <script src="index_data/imageListDirective.js"></script>
+    <script src="index_data/zoomDirective.js"></script>
+    <script src="index_data/previewImgDirective.js"></script>
+
+</body></html>

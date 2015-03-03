@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Fredericka the Great';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Fredericka the Great'), local('FrederickatheGreat'), url(http://fonts.gstatic.com/s/frederickathegreat/v5/7Es8Lxoku-e5eOZWpxw18vc3vBAn7YvtW9hNjxWZBR0.woff) format('woff');
+}
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Jura Regular'), local('Jura-Regular'), url(http://fonts.gstatic.com/s/jura/v7/pqMzP52_r6zHbOILcX8h-A.woff) format('woff');
+}
